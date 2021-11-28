@@ -69,7 +69,7 @@ erdwpe.on("CB:action,,call", async (json) => {
   console.log("call dari " + callerId);
   erdwpe.sendMessage(
     callerId,
-    "Auto block system, don't call please",
+    "「 Reject Call 」\nMaaf Kami Tidak Bisa Menerima Panggilan!\n\nSorry We Can\'t Receive Calls!\n\nTelpon/call = block\n\nChat owner: wa.me/6281392641570 agar dibuka blok-nya!",
     MessageType.text
   );
   await sleep(4000);
@@ -498,7 +498,6 @@ erdwpe.on("chat-update", async (lin) => {
 ► _${prefix}getpic_
 
 SUPPORT: 
-@${0}
 `.trim()
         );
         break;
@@ -1154,8 +1153,11 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
         var link = await wa.getGroupInvitationCode(from);
         await wa.sendFakeStatus(from, link, "This link group");
         break;
-      case "play":
-        if (args.length === 0)
+   case "play":
+        reply(
+          `Fitur dalam perbaikan silakan gunakan ${prefix}ytmp3 untuk mendownload lagu dari youtube`
+        );
+        /*if (args.length === 0)
           return reply(
             `Kirim perintah *${prefix}play* _Judul lagu yang akan dicari_`
           );
@@ -1182,7 +1184,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
           });
         } catch (err) {
           reply("ERROR");
-        }
+        }*/
         break;
       case "shazam":
         //wa.fakeStatusForwarded(from, '_tunggu sebentar_')
@@ -1390,7 +1392,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
         break;
       case "ytmp4":
         if (args.length === 0)
-          return reply(`Kirim perintah *${prefix}ytmp4 [linkYt]*`);
+          return reply(`Kirim perintah *${prefix}ytmp4 [linkYt]*\n *Example:* ${prefix}ytmp4 https://www.youtube.com/watch?v=ZG_yB1ZP798`);
         //wa.fakeStatusForwarded(from, '_tunggu sebentar_')
         let isLinks2 = args[0].match(
           /(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/
@@ -1420,7 +1422,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
       case "ytmp3":
         //wa.fakeStatusForwarded(from, '_tunggu sebentar_')
         if (args.length === 0)
-          return reply(`Kirim perintah *${prefix}ytmp3 [linkYt]*`);
+          return reply(`Kirim perintah *${prefix}ytmp3 [linkYt]*\n *Example:* ${prefix}ytmp3 https://www.youtube.com/watch?v=ZG_yB1ZP798`);
         let isLinks = args[0].match(
           /(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/
         );
