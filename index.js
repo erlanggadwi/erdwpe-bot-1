@@ -469,7 +469,6 @@ erdwpe.on("chat-update", async (lin) => {
 ► _${prefix}stickertag_
 
 *</DOWNLOAD>*
-► _${prefix}ytsearch_ <query>
 ► _${prefix}play_ <query>
 ► _${prefix}ytmp3_ <link>
 ► _${prefix}ytmp4_ <link>
