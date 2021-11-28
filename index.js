@@ -674,7 +674,7 @@ ${
             : lin;
           var media2 = await erdwpe.downloadAndSaveMediaMessage(media1);
           reply("*waitt*");
-          await recognize(media2, { lang: "eng", oem: 1, psm: 3 })
+          await recognize(media2, { lang: "eng+ind", oem: 1, psm: 3 })
             .then((teks) => {
               reply(teks.trim());
               fs.unlinkSync(media2);
