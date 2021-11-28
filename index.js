@@ -43,7 +43,8 @@ const { EmojiAPI } = require("emoji-api");
 const emoji = new EmojiAPI();
 const yts = require("yt-search");
 const imgbb = require("imgbb-uploader");
-const { fetchJson, getBase64, kyun, createExif } = require("./lib/fetcher");
+const { fetchJson, createExif } = require("./lib/exif");
+const { getBase64, kyun } = require("./lib/fetcher");
 const { recognize } = require("./lib/ocr");
 const aaa = require("./lib/fetcher");
 const getRandom = aaa.getRandom;
@@ -1155,7 +1156,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
         break;
    case "play":
         reply(
-          `Fitur dalam perbaikan silakan gunakan ${prefix}ytmp3 untuk mendownload lagu dari youtube`
+          `*Fitur dalam perbaikan silakan gunakan* ${prefix}ytmp3 untuk mendownload lagu dari youtube`
         );
         /*if (args.length === 0)
           return reply(
