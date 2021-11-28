@@ -1,3 +1,4 @@
+/*erdwpe*/
 const {
   WAConnection,
   MessageType,
