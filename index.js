@@ -2030,8 +2030,8 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
         anu = args.join(" ").split("|");
         satu = anu[0] !== "" ? anu[0] : `Erdwpe Bot`;
         dua = typeof anu[1] !== "undefined" ? anu[1] : `erdwpe.xyz`;
-        require("./lib/fetcher.js").createExif(satu, dua);
-        require("./lib/fetcher.js").modStick(media, erdwpe, lin, from);
+        require("./lib/exif.js").createExif(satu, dua);
+        require("./lib/exif.js").modStick(media, erdwpe, lin, from);
         break;
       case "setnamegc":
         if (!isGroup) return await reply("this command only for groups");
