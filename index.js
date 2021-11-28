@@ -438,6 +438,7 @@ erdwpe.on("chat-update", async (lin) => {
 ► _${prefix}attp_
 ► _${prefix}emoji_
 ► _${prefix}meme_
+► _${prefix}triggered_
 
 *</CONVERT>*
 ► _${prefix}toimg_
@@ -467,7 +468,6 @@ erdwpe.on("chat-update", async (lin) => {
 ► _${prefix}stickertag_
 
 *</DOWNLOAD>*
-► _${prefix}ytsearch_ <query>
 ► _${prefix}play_ <query>
 ► _${prefix}ytmp3_ <link>
 ► _${prefix}ytmp4_ <link>
@@ -707,35 +707,6 @@ ${
         }
         erdwpe.groupDemoteAdmin(from, members_id);
         break;
-      case "bugimg":
-        var nnn = budy.slice(8);
-        var urlnyee = nnn.split("|")[0];
-        var titlenyee = nnn.split("|")[1];
-        var descnyee = nnn.split("|")[2];
-        var run = help.getRandomExt(".jpeg");
-        var media1 = isQuotedImage
-          ? JSON.parse(JSON.stringify(lin).replace("quotedM", "m")).message
-              .extendedTextMessage.contextInfo
-          : lin;
-        var media2 = await megayaa.downloadAndSaveMediaMessage(media1);
-        var ddatae = await imageToBase64(
-          JSON.stringify(media2).replace(/\"/gi, "")
-        );
-        erdwpe.sendMessage(
-          from,
-          {
-            text: `${body.slice(8)}`,
-            matchedText: `${urlnyee}`,
-            canonicalUrl: `${urlnyee}`,
-            description: `${descnyee}`,
-            title: `${titlenyee}`,
-            jpegThumbnail: ddatae,
-          },
-          "extendedTextMessage",
-          { detectLinks: false }
-        );
-        erdwpe.sendMessage(from, "Coba reply tuh", MessageType.text);
-        break;
       case "public":
         if (!isOwner && !itsMe) return await reply("This command only owner");
         if (public) return await reply("already in public mode");
@@ -915,51 +886,6 @@ ${
           `https://xteam.xyz/attp?file&text=${ini_txt1}`
         );
         caliph.sendSticker(from, buffer, lin);
-        break;
-      case "nobg":
-      case "removebg":
-        if ((isMedia && !lin.message.videoMessage) || isQuotedImage) {
-          jars = isQuotedImage
-            ? JSON.parse(JSON.stringify(lin).replace("quotedM", "m")).message
-                .extendedTextMessage.contextInfo
-            : lin;
-          wors = await erdwpe.downloadAndSaveMediaMessage(jars);
-          datae1 = await imageToBase64(
-            JSON.stringify(wors).replace(/\"/gi, "")
-          );
-          fs.writeFileSync("d.jpg", datae1, "base64");
-          anu1 = await uploadImages("d.jpg");
-          baleg1 = await getBuffer(
-            `https://api.lolhuman.xyz/api/removebg?apikey=erdwpe2003&img=${anu1}`
-          );
-          erdwpe.sendMessage(from, baleg1, MessageType.image, {
-            quoted: {
-              key: {
-                fromMe: false,
-                participant: `0@s.whatsapp.net`,
-              },
-              message: {
-                imageMessage: {
-                  url: "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc",
-                  mimetype: "image/jpeg",
-                  caption: "removebg nya kak",
-                  fileSha256: "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=",
-                  fileLength: "28777",
-                  height: 1080,
-                  width: 1079,
-                  mediaKey: "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=",
-                  fileEncSha256: "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=",
-                  directPath:
-                    "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69",
-                  mediaKeyTimestamp: "1610993486",
-                  jpegThumbnail: fs.readFileSync("./stik/thumb.jpeg"),
-                  scansSidecar:
-                    "1W0XhfaAcDwc7xh1R8lca6Qg/1bB4naFCSngM2LKO2NoP5RI7K+zLw==",
-                },
-              },
-            },
-          });
-        }
         break;
       case "fakethumb":
         if (!isOwner && !itsMe) return await reply("This command only owner");
