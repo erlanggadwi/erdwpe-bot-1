@@ -494,6 +494,8 @@ erdwpe.on("chat-update", async (lin) => {
 *</FUN>*
 ► _${prefix}spam_
 ► _${prefix}ocr_
+► _${prefix}dare_
+► _${prefix}truth_
 ► _${prefix}ppcouple_
 ► _${prefix}owner_
 ► _${prefix}setpp_
@@ -606,6 +608,22 @@ ${
           wa.kick(from, [args[0] + "@s.whatsapp.net"]);
         }
         break;
+        case "dare":
+				data = await getJson(
+					"https://raw.githubusercontent.com/erlanggadwi/txt/main/dare.json"
+				);
+				array = data;
+				random = array[Math.floor(Math.random() * array.length)];
+				reply(random);
+				break;
+			case "truth":
+				data = await getJson(
+					"https://raw.githubusercontent.com/erlanggadwi/txt/main/truth.json"
+				);
+				array = data;
+				random = array[Math.floor(Math.random() * array.length)];
+				reply(random);
+				break;
       case "add":
         if (!isAdmin) return reply("only for admin group");
         if (!args) return reply(`Penggunaan ${prefix}add 628xxxx`);
