@@ -1410,6 +1410,8 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
           ((isMedia && !lin.message.videoMessage) || isQuotedImage) &&
           args.length == 0
         ) {
+          var a = "Erdwpe Bot";
+          var b = "Instagram: @erdwpebot";
           const encmedia = isQuotedImage
             ? JSON.parse(JSON.stringify(lin).replace("quotedM", "m")).message
                 .extendedTextMessage.contextInfo
@@ -1420,28 +1422,42 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
           );
           fs.writeFileSync("./lib/image/anu.jpg", datae12, "base64");
           const image = await Jimp.read("./lib/image/anu.jpg");
-          image.circle().write("./lib/image/anuresult.jpg");
+          image.circle().write("./lib/image/anuresult.png");
+          await createExif(a, b);
           ran = NumberRandom(".webp");
-          await ffmpeg(`./lib/image/anuresult.jpg`)
+          await ffmpeg(`./lib/image/anuresult.png`)
             .input(media)
             .on("error", function (err) {
               fs.unlinkSync(media);
               reply("error");
             })
             .size("300x300")
-            .on("end", function () {
-              erdwpe.sendMessage(from, fs.readFileSync(ran), sticker, {
-                quoted: lin,
+            .on("end", () => {
+              _out = getRandom(".webp");
+              spawn("webpmux", [
+                "-set",
+                "exif",
+                "./stik/data.exif",
+                ran,
+                "-o",
+                _out,
+              ]).on("exit", () => {
+                erdwpe.sendMessage(
+                  from,
+                  fs.readFileSync(_out),
+                  "stickerMessage",
+                  { quoted: lin }
+                );
+                fs.unlinkSync(media);
+                fs.unlinkSync(ran);
+                fs.unlinkSync("./lib/image/anu.jpg");
               });
-              fs.unlinkSync(media);
-              fs.unlinkSync(ran);
-              fs.unlinkSync("./lib/image/anu.jpg");
             })
             .addOutputOptions([
               `-vcodec`,
               `libwebp`,
               `-vf`,
-              `scale='min(300,iw)':min'(300,ih)':force_original_aspect_ratio=decrease,fps=15, pad=300:300:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`,
+              `scale='min(512,iw)':min'(512,ih)':force_original_aspect_ratio=decrease,fps=15, pad=512:512:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`,
             ])
             .toFormat("webp")
             .save(ran);
@@ -1449,7 +1465,6 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
           reply("mana fotonya");
         }
         break;
-
       case "s":
       case "sticker":
       case "stiker":
