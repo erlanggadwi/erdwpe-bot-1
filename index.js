@@ -1143,13 +1143,13 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
             axios
               .get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
               .then(async (a) => {
-                if (Number(filesize) >= 100000)
+                if (Number(filesize) >= 40000)
                   return sendMediaURL(
                     from,
                     thumb,
                     `*PLAY MUSIC*\n\n*Title* : ${title}\n*Ext* : MP3\n*Filesize* : ${filesizeF}\n*Link* : ${a.data}\n\n_Untuk durasi lebih dari batas disajikan dalam lintuk link_`
                   );
-                const captions = `*PLAY MUSIC*\n\n*Title* : ${title}\n*Ext* : MP3\n*Size* : ${filesize}\n\n_Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`;
+                const captions = `*PLAY MUSIC*\n\n*Title* : ${title}\n*Ext* : MP3\n*Size* : ${filesizeF}\n\n_Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`;
                 sendMediaURL(from, thumb, captions);
                 await sendMediaURL(from, dl_link).catch(() => reply("error"));
               });
@@ -1405,13 +1405,13 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
             axios
               .get(`https://erdwpe.me/create.php?url=${dl_link}`)
               .then((a) => {
-                if (Number(filesize) >= 30000)
+                if (Number(filesize) >= 40000)
                   return sendMediaURL(
                     from,
                     thumb,
                     `*Data Berhasil Didapatkan!*\n\n*Title* : ${title}\n*Ext* : MP3\n*Filesize* : ${filesizeF}\n*Link* : ${a.data.result.url}\n\n_Untuk durasi lebih dari batas disajikan dalam mektuk link_`
                   );
-                const captions = `*YTMP3*\n\n*Title* : ${title}\n*Ext* : MP3\n*Size* : ${filesize}\n\n_Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`;
+                const captions = `*YTMP3*\n\n*Title* : ${title}\n*Ext* : MP3\n*Size* : ${filesizeF}\n\n_Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`;
                 sendMediaURL(from, thumb, captions);
                 sendMediaURL(from, dl_link).catch(() => reply("ERROR"));
               });
