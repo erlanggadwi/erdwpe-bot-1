@@ -1149,7 +1149,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
                     thumb,
                     `*PLAY MUSIC*\n\n*Title* : ${title}\n*Ext* : MP3\n*Filesize* : ${filesizeF}\n*Link* : ${a.data}\n\n_Untuk durasi lebih dari batas disajikan dalam lintuk link_`
                   );
-                const captions = `*PLAY MUSIC*\n\n*Title* : ${title}\n*Ext* : MP3\n*Size* : ${filesizeF}\n\n_Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`;
+                const captions = `*PLAY MUSIC*\n\n*Title* : ${title}\n*Ext* : MP3\n*Size* : ${filesize}\n\n_Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`;
                 sendMediaURL(from, thumb, captions);
                 await sendMediaURL(from, dl_link).catch(() => reply("error"));
               });
