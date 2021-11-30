@@ -1129,10 +1129,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
         await wa.sendFakeStatus(from, link, "This link group");
         break;
    case "play":
-        reply(
-          `*Fitur dalam perbaikan silakan gunakan* ${prefix}ytmp3 untuk mendownload lagu dari youtube`
-        );
-        /*if (args.length === 0)
+        if (args.length === 0)
           return reply(
             `Kirim perintah *${prefix}play* _Judul lagu yang akan dicari_`
           );
@@ -1159,7 +1156,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
           });
         } catch (err) {
           reply("ERROR");
-        }*/
+        }
         break;
       case "shazam":
         //wa.fakeStatusForwarded(from, '_tunggu sebentar_')
@@ -2070,19 +2067,12 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
       default:
         if (isCmd) return reply(`Command *${command}* not found`);
     }
-  } catch (e) {
-    e = String(e); // Fixed In Consolog 🌿
-    if (
-      !e.includes("this.isZero") &&
-      !e.includes("jid") &&
-      !e.includes("Cannot read property 'fromMe' of undefined") &&
-      !e.includes(
-        "Cannot use 'in' operator to search for 'text' in undefined"
-      ) &&
-      !e.includes("Cannot read property 'key' of undefined") &&
-      !e.includes("Cannot use 'in' operator to search for 'text' in undefined")
-    ) {
-      console.log("Message : %s", color(e, "yellow"));
-    }
+  } catch (e) } catch (e) {
+    console.log(
+      chalk.whiteBright("├"),
+      chalk.keyword("aqua")("[  ERROR  ]"),
+      chalk.keyword("red")(e)
+    );
   }
 });
+
