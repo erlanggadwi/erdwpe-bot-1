@@ -2067,7 +2067,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
       default:
         if (isCmd) return reply(`Command *${command}* not found`);
     }
-  } catch (e) } catch (e) {
+  } catch (e) {
     console.log(
       chalk.whiteBright("├"),
       chalk.keyword("aqua")("[  ERROR  ]"),
@@ -2075,4 +2075,3 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
     );
   }
 });
-
