@@ -439,6 +439,7 @@ erdwpe.on("chat-update", async (lin) => {
 ► _${prefix}ttp_
 ► _${prefix}attp_
 ► _${prefix}triggered_
+► _${prefix}pet_
 ► _${prefix}emoji_
 ► _${prefix}meme_
 
@@ -906,6 +907,20 @@ ${
           erdwpe.sendSticker(from, tek3s, lin);
         }
         break;
+        case "pet":
+        if (!isQuotedImage && !isImage)
+          return reply(`Reply/Kirim image Dengan Caption ${command}`);
+        jarsw3 = isQuotedImage
+          ? JSON.parse(JSON.stringify(lin).replace("quotedM", "m")).message
+              .extendedTextMessage.contextInfo
+          : lin;
+        const getbufsw2 = await erdwpe.downloadAndSaveMediaMessage(jarsw3);
+        res34 = await uploadImages(getbufsw2);
+        buffertt = await getBuffer(
+          `https://api.erdwpe.xyz/creator/pet?avatarURL=${res34}`
+        );
+        erdwpe.sendSticker(from, buffertt, lin);
+        break;
       case "triggered":
         if (!isQuotedImage && !isImage)
           return reply(`Reply/Kirim image Dengan Caption ${command}`);
@@ -1121,10 +1136,12 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
         await reply(`Success demote member`);
         break;
       case "admin":
+	if (!isGroup) return await reply("this command only for group");
         var text4 = msg.admin(groupAdmins, groupName);
         await wa.sendFakeStatus(from, text4, "LIST ADMIN", groupAdmins);
         break;
       case "linkgc":
+	if (!isGroup) return await reply("this command only for group");
         var link = await wa.getGroupInvitationCode(from);
         await wa.sendFakeStatus(from, link, "This link group");
         break;
