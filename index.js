@@ -931,7 +931,7 @@ ${
         const getbufs2 = await erdwpe.downloadAndSaveMediaMessage(jars3);
         res3 = await uploadImages(getbufs2);
         buffer = await getBuffer(
-          `https://some-random-api.ml/canvas/triggered?avatar=${res3}`
+          `https://api.erdwpe.xyz/creator/triggered?avatarURL=${res3}`
         );
         erdwpe.sendSticker(from, buffer, lin);
         break;
