@@ -1839,6 +1839,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
         }
         break;
       case "bass":
+	if (!isQuotedAudio) return reply("reply audio nya!");
         encmedia = JSON.parse(JSON.stringify(lin).replace("quotedM", "m"))
           .message.extendedTextMessage.contextInfo;
         media = await erdwpe.downloadAndSaveMediaMessage(encmedia);
