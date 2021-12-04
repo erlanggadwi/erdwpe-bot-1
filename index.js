@@ -425,7 +425,6 @@ erdwpe.on("chat-update", async (lin) => {
 ❏ *Jam:* ${jmn}
 ❏ *Hari/Tanggal:* ${day} ${weton}, ${calender}
 ❏ *Website:* https://erdwpe.xyz/
-❏ *Instagram:* https://instagram.com/erdwpebot/
 ❏ *Lib:* Baileys
 ❏ *Hai:* ${pushname}
 ❏ *Prefix:* 「 ${prefix} 」
@@ -455,7 +454,6 @@ erdwpe.on("chat-update", async (lin) => {
 ► _${prefix}slow_
 
 *</GRUP>*
-► _${prefix}fitnah_
 ► _${prefix}linkgc_
 ► _${prefix}promote_
 ► _${prefix}demote_
@@ -917,7 +915,7 @@ ${
         const getbufsw2 = await erdwpe.downloadAndSaveMediaMessage(jarsw3);
         res34 = await uploadImages(getbufsw2);
         buffertt = await getBuffer(
-          `https://api.erdwpe.xyz/creator/pet?avatarURL=${res34}`
+          `https://erdwpe-api.herokuapp.com/creator/pet?avatarURL=${res34}`
         );
         erdwpe.sendSticker(from, buffertt, lin);
         break;
@@ -931,7 +929,7 @@ ${
         const getbufs2 = await erdwpe.downloadAndSaveMediaMessage(jars3);
         res3 = await uploadImages(getbufs2);
         buffer = await getBuffer(
-          `https://api.erdwpe.xyz/creator/triggered?avatarURL=${res3}`
+          `https://erdwpe-api.herokuapp.com/creator/triggered?avatarURL=${res3}`
         );
         erdwpe.sendSticker(from, buffer, lin);
         break;
@@ -1076,7 +1074,7 @@ ${
         wa.sendFakeStatus(from, "succes");
         break;
       case "ppcouple":
-        getres = await axios.get(`https://api.erdwpe.xyz/randomimg/ppcouple`);
+        getres = await axios.get(`https://erdwpe-api.herokuapp.com/randomimg/ppcouple`);
         var { male, female } = getres.data;
         picmale = await getBuffer(`${male}`);
         erdwpe.sendMessage(from, picmale, image, {
@@ -1197,7 +1195,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
           );
         ini_url = args[0];
         getresult = await axios.get(
-          `https://api.erdwpe.xyz/downloader/igstory?username=${ini_url}`
+          `https://erdwpe-api.herokuapp.com/downloader/igstory?username=${ini_url}`
         );
         if (getresult.data.error)
           return reply(
@@ -1226,7 +1224,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
             `Example: ${prefix + command} https://vt.tiktok.com/ZSwWCk5o/`
           );
         ini_url = args[0];
-        ini_url = `https://api.erdwpe.xyz/downloader/tiktok?url=${ini_url}`;
+        ini_url = `https://erdwpe-api.herokuapp.com/downloader/tiktok?url=${ini_url}`;
         get_result = await fetchJson(ini_url);
         ini_buffer = await getBuffer(get_result.result.nowatermark);
         await erdwpe.sendMessage(from, ini_buffer, video, {
@@ -1267,7 +1265,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
         reply(`*Mohon Tunggu Sebentar*`);
         ini_url = budy.slice(11);
         ini_url = await axios.get(
-          `https://api.erdwpe.xyz/downloader/twitter?link=${ini_url}`
+          `https://erdwpe-api.herokuapp.com/downloader/twitter?link=${ini_url}`
         );
         ini_buffer = await getBuffer(ini_url.data.HD);
         await erdwpe.sendMessage(from, ini_buffer, MessageType.video, {
@@ -1308,7 +1306,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
           throw `Silahkan masukkan URL yang valid!`;
         ini_url = args[0];
         getresult = await axios.get(
-          `https://api.erdwpe.xyz/downloader/igdl?link=${ini_url}`
+          `https://erdwpe-api.herokuapp.com/downloader/igdl?link=${ini_url}`
         );
         if (getresult.data.error)
           return reply("*Link Tidak Valid/Private Akun Coba Cek Kembali*");
