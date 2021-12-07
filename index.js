@@ -947,7 +947,7 @@ ${
         buffer = await getBuffer(
           `https://xteam.xyz/attp?file&text=${ini_txt1}`
         );
-        caliph.sendSticker(from, buffer, lin);
+        erdwpe.sendSticker(from, buffer, lin);
         break;
       case "fakethumb":
         if (!isOwner && !itsMe) return await reply("This command only owner");
