@@ -1736,7 +1736,8 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
         erdwpe.sendSticker(from, ini_buffer, lin);
         break;
 case "tomp3":
-        if (!isQuotedVideo){
+        if (!isQuotedVideo)
+          return reply("Reply videonya!");
         const encmedia = isQuotedVideo
             ? JSON.parse(JSON.stringify(lin).replace("quotedM", "m")).message
                 .extendedTextMessage.contextInfo
@@ -1753,9 +1754,6 @@ case "tomp3":
           });
           fs.unlinkSync(ran);
         });
-        }else{
-          wa.sendFakeStatus(from, "reply videonya!");
-        }
         break;
       case "tomp4":
         if (isQuotedSticker) {
