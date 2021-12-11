@@ -1736,8 +1736,9 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
         erdwpe.sendSticker(from, ini_buffer, lin);
         break;
       case "tomp3":
-        if (!isQuotedVideo && !isVideo)
-          return wa.fakeStatusForwarded(from, "Reply videonya!");
+        if (!isQuotedVideo && lin.message.extendedTextMessage.contextInfo.quotedMessage
+          .videoMessage)
+          return reply("Reply videonya!");
         //wa.fakeStatusForwarded(from, '_tunggu sebentar_')
         encmedia = JSON.parse(JSON.stringify(lin).replace("quotedM", "m"))
           .message.extendedTextMessage.contextInfo;
