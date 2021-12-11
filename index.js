@@ -1735,13 +1735,12 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
         );
         erdwpe.sendSticker(from, ini_buffer, lin);
         break;
-      case "tomp3":
-        if (!isQuotedVideo && lin.message.extendedTextMessage.contextInfo.quotedMessage
-          .videoMessage)
-          return reply("Reply videonya!");
-        //wa.fakeStatusForwarded(from, '_tunggu sebentar_')
-        encmedia = JSON.parse(JSON.stringify(lin).replace("quotedM", "m"))
-          .message.extendedTextMessage.contextInfo;
+case "tomp3":
+        if (!isQuotedVideo){
+        const encmedia = isQuotedVideo
+            ? JSON.parse(JSON.stringify(lin).replace("quotedM", "m")).message
+                .extendedTextMessage.contextInfo
+            : lin;
         media = await erdwpe.downloadAndSaveMediaMessage(encmedia);
         ran = getRandom(".mp4");
         exec(`ffmpeg -i ${media} ${ran}`, (err) => {
@@ -1754,6 +1753,9 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
           });
           fs.unlinkSync(ran);
         });
+        }else{
+          wa.sendFakeStatus(from, "reply videonya!");
+        }
         break;
       case "tomp4":
         if (isQuotedSticker) {
