@@ -878,11 +878,11 @@ ${
       case "smeme":
         if (!q.includes("|"))
           return reply(
-            `*Kirim Atau Reply Gambar Dengan Caption:*\n${prefix} ERDWPE|BOT`
+            `*Kirim Atau Reply Gambar Dengan Caption:*\n${prefix}ERDWPE|BOT`
           );
         if (!isQuotedImage && !isImage)
           return reply(
-            `*Kirim Atau Reply Gambar Dengan Caption:*\n${prefix} ERDWPE|BOT`
+            `*Kirim Atau Reply Gambar Dengan Caption:*\n${prefix}ERDWPE|BOT`
           );
         gh = body.slice(7).replace(/ /g, "%20");
         wo1 = gh.split("|")[0];
