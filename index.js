@@ -1736,11 +1736,11 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
         erdwpe.sendSticker(from, ini_buffer, lin);
         break;
 case "tomp3":
-        if (!isQuotedVideo){
-        const encmedia = isQuotedVideo
-            ? JSON.parse(JSON.stringify(lin).replace("quotedM", "m")).message
-                .extendedTextMessage.contextInfo
-            : lin;
+        if (!isQuotedVideo)
+          return wa.fakeStatusForwarded(from, "Reply videonya!");
+        //wa.fakeStatusForwarded(from, '_tunggu sebentar_')
+        encmedia = JSON.parse(JSON.stringify(lin).replace("quotedM", "m"))
+          .message.extendedTextMessage.contextInfo;
         media = await erdwpe.downloadAndSaveMediaMessage(encmedia);
         ran = getRandom(".mp4");
         exec(`ffmpeg -i ${media} ${ran}`, (err) => {
@@ -1751,9 +1751,6 @@ case "tomp3":
             mimetype: "audio/mp4",
             quoted: lin,
           });
-	 } else {
-          wa.sendFakeStatus(from, "reply videonya!");
-        }	
           fs.unlinkSync(ran);
         });
         break;
