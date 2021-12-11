@@ -463,11 +463,6 @@ erdwpe.on("chat-update", async (lin) => {
 ► _${prefix}add_
 ► _${prefix}kick_
 
-*</TAG>*
-► _${prefix}hidetag_
-► _${prefix}imagetag_
-► _${prefix}stickertag_
-
 *</DOWNLOAD>*
 ► _${prefix}play_ <query>
 ► _${prefix}ytmp3_ <link>
@@ -883,11 +878,11 @@ ${
       case "smeme":
         if (!q.includes("|"))
           return reply(
-            `*Kirim Atau Reply Gambar Dengan Caption:*\n${command} ERDWPE|BOT`
+            `*Kirim Atau Reply Gambar Dengan Caption:*\n${prefix} ERDWPE|BOT`
           );
         if (!isQuotedImage && !isImage)
           return reply(
-            `*Kirim Atau Reply Gambar Dengan Caption:*\n${command} ERDWPE|BOT`
+            `*Kirim Atau Reply Gambar Dengan Caption:*\n${prefix} ERDWPE|BOT`
           );
         gh = body.slice(7).replace(/ /g, "%20");
         wo1 = gh.split("|")[0];
@@ -1741,7 +1736,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
         erdwpe.sendSticker(from, ini_buffer, lin);
         break;
       case "tomp3":
-        if (!isQuotedVideo)
+        if (!isQuotedVideo && !isVideo)
           return wa.fakeStatusForwarded(from, "Reply videonya!");
         //wa.fakeStatusForwarded(from, '_tunggu sebentar_')
         encmedia = JSON.parse(JSON.stringify(lin).replace("quotedM", "m"))
