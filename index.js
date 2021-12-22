@@ -907,7 +907,7 @@ ${
           ? JSON.parse(JSON.stringify(lin).replace("quotedM", "m")).message
               .extendedTextMessage.contextInfo
           : lin;
-        const getbufsw2 = await erdwpe.downloadAndSaveMediaMessage(jarsw3);
+        const getbufsw2 = await erdwpe.downloadMedia(jarsw3);
         res34 = await uploadImages(getbufsw2);
         buffertt = await getBuffer(
           `https://erdwpe-api.herokuapp.com/creator/pet?avatarURL=${res34}`
@@ -1735,10 +1735,9 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
         );
         erdwpe.sendSticker(from, ini_buffer, lin);
         break;
-case "tomp3":
-        if (!isQuotedVideo)
-          return wa.fakeStatusForwarded(from, "Reply videonya!");
-        //wa.fakeStatusForwarded(from, '_tunggu sebentar_')
+      case "tomp3":
+        if (!isQuotedVideo && !isImage)
+          return reply("Reply videonya!");
         encmedia = JSON.parse(JSON.stringify(lin).replace("quotedM", "m"))
           .message.extendedTextMessage.contextInfo;
         media = await erdwpe.downloadAndSaveMediaMessage(encmedia);
