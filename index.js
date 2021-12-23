@@ -431,16 +431,15 @@ erdwpe.on("chat-update", async (lin) => {
 
 *</MAKER>*
 ► _${prefix}sticker_
-► _${prefix}smeme_
+► _${prefix}smeme_ *(Maintenance)*
 ► _${prefix}sround_
 ► _${prefix}swm_ <author|packname>
 ► _${prefix}colong_
 ► _${prefix}ttp_
 ► _${prefix}attp_
-► _${prefix}triggered_
-► _${prefix}pet_
-► _${prefix}emoji_
-► _${prefix}meme_
+► _${prefix}triggered_ *(Maintenance)*
+► _${prefix}pet_ *(Maintenance)*
+► _${prefix}emoji_ *(Maintenance)*
 
 *</CONVERT>*
 ► _${prefix}toimg_
@@ -462,6 +461,11 @@ erdwpe.on("chat-update", async (lin) => {
 ► _${prefix}setdecs_
 ► _${prefix}add_
 ► _${prefix}kick_
+
+*</TAG>*
+► _${prefix}hidetag_
+► _${prefix}imagetag_
+► _${prefix}stickertag_
 
 *</DOWNLOAD>*
 ► _${prefix}play_ <query>
@@ -660,7 +664,7 @@ ${
         break;
 
       case "spam":
-        if (!itsMe) return reply("This command only for xrlangga");
+        if (!itsMe) return reply("This command only for owner");
         if (!arg) return reply(`Penggunaan ${prefix}spam teks|jumlahspam`);
         argz = arg.split("|");
         if (!argz) return reply(`Penggunaan ${prefix}spam teks|jumlah`);
@@ -670,7 +674,7 @@ ${
         }
         break;
       case "shutdown":
-        if (!itsMe) return reply("This command only for xrlangga");
+        if (!itsMe) return reply("This command only for owner");
         await wa.FakeTokoForwarded(from, `Bye...`, fake);
         await sleep(5000);
         erdwpe.close();
@@ -876,13 +880,14 @@ ${
         }
         break;
       case "smeme":
-        if (!q.includes("|"))
+        reply("Fitur Maintenance");
+        /*if (!q.includes("|"))
           return reply(
-            `*Kirim Atau Reply Gambar Dengan Caption:*\n${prefix}ERDWPE|BOT`
+            `*Kirim Atau Reply Gambar Dengan Caption:*\n${prefix} ERDWPE|BOT`
           );
         if (!isQuotedImage && !isImage)
           return reply(
-            `*Kirim Atau Reply Gambar Dengan Caption:*\n${prefix}ERDWPE|BOT`
+            `*Kirim Atau Reply Gambar Dengan Caption:*\n${prefix} ERDWPE|BOT`
           );
         gh = body.slice(7).replace(/ /g, "%20");
         wo1 = gh.split("|")[0];
@@ -898,10 +903,11 @@ ${
             `https://api.memegen.link/images/custom/${wo1}/${wo2}.png?background=${anu}`
           );
           erdwpe.sendSticker(from, tek3s, lin);
-        }
+        }*/
         break;
         case "pet":
-        if (!isQuotedImage && !isImage)
+          reply("Fitur Maintenance");
+        /*if (!isQuotedImage && !isImage)
           return reply(`Reply/Kirim image Dengan Caption ${command}`);
         jarsw3 = isQuotedImage
           ? JSON.parse(JSON.stringify(lin).replace("quotedM", "m")).message
@@ -912,10 +918,11 @@ ${
         buffertt = await getBuffer(
           `https://erdwpe-api.herokuapp.com/creator/pet?avatarURL=${res34}`
         );
-        erdwpe.sendSticker(from, buffertt, lin);
+        erdwpe.sendSticker(from, buffertt, lin);*/
         break;
       case "triggered":
-        if (!isQuotedImage && !isImage)
+        reply("Fitur Maintenance");
+        /*if (!isQuotedImage && !isImage)
           return reply(`Reply/Kirim image Dengan Caption ${command}`);
         jars3 = isQuotedImage
           ? JSON.parse(JSON.stringify(lin).replace("quotedM", "m")).message
@@ -926,7 +933,7 @@ ${
         buffer = await getBuffer(
           `https://erdwpe-api.herokuapp.com/creator/triggered?avatarURL=${res3}`
         );
-        erdwpe.sendSticker(from, buffer, lin);
+        erdwpe.sendSticker(from, buffer, lin);*/
         break;
       case "ttp":
         if (args.length == 0) return m.reply(`Example: ${command} LoL Human`);
@@ -1083,7 +1090,7 @@ ${
         });
         break;
       case "chat":
-        if (!itsMe) return reply("This command only for xrlangga");
+        if (!itsMe) return reply("This command only for owner");
         var pc = budy.slice(6);
         var nomor = pc.split("|")[0];
         var org = pc.split("|")[1];
@@ -1713,16 +1720,18 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
         }
         break;
       case "emoji":
-        if (!q) return wa.sendFakeStatus("emojinya?");
+        reply("Fitur Maintenance");
+        /*if (!q) return wa.sendFakeStatus("emojinya?");
         qes = args.join(" ");
         emoji.get(`${qes}`).then((emoji) => {
           teks = `${emoji.images[4].url}`;
           erdwpe.sendSticker(from, teks, lin);
           console.log(teks);
-        });
+        });*/
         break;
       case "sfire":
-        if (!isQuotedImage && !isImage)
+        reply("Fitur Maintenance");
+        /*if (!isQuotedImage && !isImage)
           return reply(`Reply/Kirim image Dengan Caption ${command}`);
         jars34 = isQuotedImage
           ? JSON.parse(JSON.stringify(lin).replace("quotedM", "m")).message
@@ -1733,11 +1742,12 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
         ini_buffer = await getBuffer(
           `https://api.zeks.me/api/burning-image?apikey=BryanRfly&image=${res}`
         );
-        erdwpe.sendSticker(from, ini_buffer, lin);
+        erdwpe.sendSticker(from, ini_buffer, lin);*/
         break;
       case "tomp3":
-        if (!isQuotedVideo && !isImage)
-          return reply("Reply videonya!");
+        if (!isQuotedVideo && !isVideo)
+          return wa.fakeStatusForwarded(from, "Reply videonya!");
+        //wa.fakeStatusForwarded(from, '_tunggu sebentar_')
         encmedia = JSON.parse(JSON.stringify(lin).replace("quotedM", "m"))
           .message.extendedTextMessage.contextInfo;
         media = await erdwpe.downloadAndSaveMediaMessage(encmedia);
