@@ -907,7 +907,7 @@ ${
           ? JSON.parse(JSON.stringify(lin).replace("quotedM", "m")).message
               .extendedTextMessage.contextInfo
           : lin;
-        const getbufsw2 = await wa.downloadMedia(jarsw3);
+        const getbufsw2 = await erdwpe.downloadAndSaveMediaMessage(jarsw3);
         res34 = await uploadImages(getbufsw2);
         buffertt = await getBuffer(
           `https://erdwpe-api.herokuapp.com/creator/pet?avatarURL=${res34}`
