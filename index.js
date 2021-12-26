@@ -921,8 +921,7 @@ ${
         erdwpe.sendSticker(from, buffertt, lin);*/
         break;
       case "triggered":
-        reply("Fitur Maintenance");
-        /*if (!isQuotedImage && !isImage)
+        if (!isQuotedImage && !isImage)
           return reply(`Reply/Kirim image Dengan Caption ${command}`);
         jars3 = isQuotedImage
           ? JSON.parse(JSON.stringify(lin).replace("quotedM", "m")).message
@@ -933,7 +932,7 @@ ${
         buffer = await getBuffer(
           `https://erdwpe-api.herokuapp.com/creator/triggered?avatarURL=${res3}`
         );
-        erdwpe.sendSticker(from, buffer, lin);*/
+        erdwpe.sendSticker(from, buffer, lin);
         break;
       case "ttp":
         if (args.length == 0) return m.reply(`Example: ${command} LoL Human`);
