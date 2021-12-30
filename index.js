@@ -485,6 +485,7 @@ erdwpe.on("chat-update", async (lin) => {
 ► _${prefix}broadcast_
 ► _${prefix}ping_
 ► _${prefix}noprefix_
+► _${prefix}cmc_
 ► _${prefix}chat_
 ► _${prefix}runtime_
 ► _>_ <code>
@@ -593,6 +594,23 @@ ${
         var media2 = await erdwpe.downloadAndSaveMediaMessage(media1);
         await erdwpe.updateProfilePicture(meNumber, media2);
         reply("Done!");
+        break;
+	case "cmc":
+        //wa.fakeStatusForwarded(from, '_tunggu sebentar_')
+        //datae = await imageToBase64(JSON.stringify(wors).replace(/\"/gi, ''))
+        anu3s = args[0];
+        baleg4f = await fetchJson(
+          `https://erdwpe-api.herokuapp.com/creator/cmc?query=${anu3s}`
+        );
+        arraya = baleg4f.result.Data.USD;
+        obj = JSON.stringify(arraya, null, "  ");
+        teks = `╠══✪〘 *Coinmarketcap* 〙✪══
+
+❏ *Name Coin* : ${baleg4f.result.Name}
+❏ *Data* : ${obj}
+
+╠══✪〘 *Coinmarketcap* 〙✪══`;
+        erdwpe.sendMessage(from, teks, MessageType.text);
         break;
       case "kick":
         if (!isAdmin) return reply("this command only for admin");
@@ -921,7 +939,8 @@ ${
         erdwpe.sendSticker(from, buffertt, lin);*/
         break;
       case "triggered":
-        if (!isQuotedImage && !isImage)
+		              reply("Fitur Maintenance");
+         /*if (!isQuotedImage && !isImage)
           return reply(`Reply/Kirim image Dengan Caption ${command}`);
         jars3 = isQuotedImage
           ? JSON.parse(JSON.stringify(lin).replace("quotedM", "m")).message
@@ -932,7 +951,7 @@ ${
         buffer = await getBuffer(
           `https://erdwpe-api.herokuapp.com/creator/triggered?avatarURL=${res3}`
         );
-        erdwpe.sendSticker(from, buffer, lin);
+        erdwpe.sendSticker(from, buffer, lin);*/
         break;
       case "ttp":
         if (args.length == 0) return m.reply(`Example: ${command} LoL Human`);
