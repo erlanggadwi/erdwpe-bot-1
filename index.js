@@ -603,11 +603,22 @@ ${
           `https://erdwpe-api.herokuapp.com/creator/cmc?query=${anu3s}`
         );
         arraya = baleg4f.result.Data.USD;
-        obj = JSON.stringify(arraya, null, "  ");
+        arrayas = baleg4f.result.Platform;
+        objs = JSON.stringify(arrayas, null, "       ");
+        obj = JSON.stringify(arraya, null, "       ");
         teks = `╠══✪〘 *Coinmarketcap* 〙✪══
 
-❏ *Name Coin* : ${baleg4f.result.Name}
-❏ *Data* : ${obj}
+        ❏ *Name* : ${baleg4f.result.Name}
+        ❏ *Symbol* : ${baleg4f.result.Symbol}
+        ❏ *Circulating_supply* : ${baleg4f.result.Circulating_supply}
+        ❏ *Total_supply* : ${baleg4f.result.Total_supply}
+        ❏ *Max_supply* : ${baleg4f.result.Max_supply}
+        ❏ *Date_added* : ${baleg4f.result.Date_added}
+        ❏ *Num_market_pairs* : ${baleg4f.result.Num_market_pairs}
+        ❏ *Tags* : ${baleg4f.result.Tags}
+        ❏ *Platform* : ${objs}
+        ❏ *Cmc_rank* : ${baleg4f.result.Cmc_rank}
+        ❏ *Data* : ${obj}
 
 ╠══✪〘 *Coinmarketcap* 〙✪══`;
         erdwpe.sendMessage(from, teks, MessageType.text);
