@@ -936,8 +936,8 @@ ${
         }*/
         break;
         case "pet":
-          //reply("Fitur Maintenance");
-        if (!isQuotedImage && !isImage)
+          reply("Fitur Maintenance");
+        /*if (!isQuotedImage && !isImage)
           return reply(`Reply/Kirim image Dengan Caption ${command}`);
         jarsw3 = isQuotedImage
           ? JSON.parse(JSON.stringify(lin).replace("quotedM", "m")).message
@@ -948,7 +948,7 @@ ${
         buffertt = await getBuffer(
           `https://erdwpe-api.herokuapp.com/creator/pet?avatarURL=${res34}`
         );
-        erdwpe.sendSticker(from, buffertt, lin);
+        erdwpe.sendSticker(from, buffertt, lin);*/
         break;
       case "triggered":
 		              reply("Fitur Maintenance");
