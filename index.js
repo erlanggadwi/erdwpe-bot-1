@@ -25,6 +25,7 @@ let uploadFile = require("./lib/uploadfile");
 const { yta, ytv } = require("./lib/ytdl");
 const ffmpeg = require("fluent-ffmpeg");
 let getJson = require("./lib/help").json;
+let getBuffer = require("./lib/help").buffer;
 const axios = require("axios");
 const speed = require("performance-now");
 const simple = require("./lib/simple.js");
@@ -49,7 +50,7 @@ const { getBase64, kyun, fetchJson } = require("./lib/fetcher");
 const { recognize } = require("./lib/ocr");
 const aaa = require("./lib/fetcher");
 const getRandom = aaa.getRandom;
-const getBuffer = aaa.getBuffer;
+//const getBuffer = aaa.getBuffer;
 const postJson = aaa.postJson;
 const config = JSON.parse(fs.readFileSync("./config.json"));
 const owner = config.owner;
@@ -935,8 +936,8 @@ ${
         }*/
         break;
         case "pet":
-          reply("Fitur Maintenance");
-        /*if (!isQuotedImage && !isImage)
+          //reply("Fitur Maintenance");
+        if (!isQuotedImage && !isImage)
           return reply(`Reply/Kirim image Dengan Caption ${command}`);
         jarsw3 = isQuotedImage
           ? JSON.parse(JSON.stringify(lin).replace("quotedM", "m")).message
@@ -947,7 +948,7 @@ ${
         buffertt = await getBuffer(
           `https://erdwpe-api.herokuapp.com/creator/pet?avatarURL=${res34}`
         );
-        erdwpe.sendSticker(from, buffertt, lin);*/
+        erdwpe.sendSticker(from, buffertt, lin);
         break;
       case "triggered":
 		              reply("Fitur Maintenance");
