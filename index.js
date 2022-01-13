@@ -936,7 +936,6 @@ ${
         }*/
         break;
         case "pet":
-          reply("Fitur Maintenance");
         if (!isQuotedImage && !isImage)
           return reply(`Reply/Kirim image Dengan Caption ${command}`);
         jarsw3 = isQuotedImage
