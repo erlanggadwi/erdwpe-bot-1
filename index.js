@@ -26,7 +26,10 @@ const { yta, ytv } = require("./lib/ytdl");
 const ffmpeg = require("fluent-ffmpeg");
 let getJson = require("./lib/help").json;
 let getBuffer = require("./lib/help").buffer;
+const { pasaran } = require('./lib/tgl');
 const axios = require("axios");
+const petPetGif = require("pet-pet-gif");
+const canvacord = require("canvacord");
 const speed = require("performance-now");
 const simple = require("./lib/simple.js");
 const request = require("request");
@@ -49,13 +52,14 @@ const { createExif } = require("./lib/exif");
 const { getBase64, kyun, fetchJson } = require("./lib/fetcher");
 const { recognize } = require("./lib/ocr");
 const aaa = require("./lib/fetcher");
+let { sticker, addExif } = require("./lib/sticker");
 const getRandom = aaa.getRandom;
-//const getBuffer = aaa.getBuffer;
 const postJson = aaa.postJson;
 const config = JSON.parse(fs.readFileSync("./config.json"));
 const owner = config.owner;
 const mods = config.mods;
 var public = config.public;
+const imgb = "0ed37ce95a75301ffeacf29eaff172da";
 antidel = true;
 
 conn.connect();
@@ -66,13 +70,15 @@ const sleep = async (ms) => {
 
 fakeimage = fs.readFileSync(`./lib/image/erdwpe.png`);
 fake = "Erdwpe Bot";
+author = "Erdwpe Bot";
+packname = "erdwpe.xyz";
 
 erdwpe.on("CB:action,,call", async (json) => {
   const callerId = json[2][0][1].from;
   console.log("call dari " + callerId);
   erdwpe.sendMessage(
     callerId,
-    "「 Reject Call 」\nMaaf Kami Tidak Bisa Menerima Panggilan!\n\nSorry We Can\'t Receive Calls!\n\nTelpon/call = block\n\nChat owner: wa.me/6281392641570 agar dibuka blok-nya!",
+    "「 Reject Call 」\nMaaf Kami Tidak Bisa Menerima Panggilan!\n\nSorry We Can't Receive Calls!\n\nTelpon/call = block\n\nChat owner: wa.me/6281392641570 agar dibuka blok-nya!",
     MessageType.text
   );
   await sleep(4000);
@@ -357,7 +363,7 @@ erdwpe.on("chat-update", async (lin) => {
                     break*/
     //WAKTU
     const jmn = moment.tz("Asia/Jakarta").format("HH:mm:ss");
-    let d = new Date();
+    /*let d = new Date();
     let locale = "id";
     let gmt = new Date(0).getTime() - new Date("1 Januari 2021").getTime();
     const weton = ["Kliwon", "Legi", "Pahing", "Pon", "Wage"][
@@ -377,7 +383,7 @@ erdwpe.on("chat-update", async (lin) => {
       day: "numeric",
       month: "long",
       year: "numeric",
-    });
+    });*/
     if (!isGroup && !isCmd)
       console.log(
         chalk.whiteBright("├"),
@@ -424,7 +430,8 @@ erdwpe.on("chat-update", async (lin) => {
         reply(
           `◪ 𝗜𝗡𝗙𝗢
 ❏ *Jam:* ${jmn}
-❏ *Hari/Tanggal:* ${day} ${weton}, ${calender}
+❏ *Hari/Tanggal:* ${pasaran().jawa}
+❏ *Kalender Islam (Hijriyah):* ${pasaran().hijriyah}
 ❏ *Website:* https://erdwpe.xyz/
 ❏ *Lib:* Baileys
 ❏ *Hai:* ${pushname}
@@ -436,8 +443,8 @@ erdwpe.on("chat-update", async (lin) => {
 ► _${prefix}sround_
 ► _${prefix}swm_ <author|packname>
 ► _${prefix}colong_
-► _${prefix}ttp_
-► _${prefix}attp_
+► _${prefix}ttp_ *(Maintenance)*
+► _${prefix}attp_ *(Maintenance)*
 ► _${prefix}triggered_ *(Maintenance)*
 ► _${prefix}pet_ *(Maintenance)*
 ► _${prefix}emoji_ *(Maintenance)*
@@ -501,7 +508,6 @@ erdwpe.on("chat-update", async (lin) => {
 ► _${prefix}setpp_
 ► _${prefix}getpic_
 
-SUPPORT: 
 `.trim()
         );
         break;
