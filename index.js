@@ -430,7 +430,7 @@ erdwpe.on("chat-update", async (lin) => {
 ❏ *Jam:* ${jmn}
 ❏ *Hari/Tanggal:* ${pasaran().jawa}
 ❏ *Kalender Islam (Hijriyah):* ${pasaran().hijriyah}
-❏ *Website:* https://erdwpe.xyz/
+❏ *Website:* https://erdwpe.com/
 ❏ *Lib:* Baileys
 ❏ *Hai:* ${pushname}
 ❏ *Prefix:* 「 ${prefix} 」
@@ -1227,7 +1227,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
       case "igstory":
         if (args.length == 0)
           return reply(
-            `Penggunaan ${prefix} username\n\nContoh: ${prefix} mastercorbuzier`
+            `Penggunaan ${prefix}username\n\nContoh: ${prefix}mastercorbuzier`
           );
         ini_url = args[0];
         getresult = await axios.get(
@@ -1259,7 +1259,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
           return reply(
             `Example: ${prefix + command} https://vt.tiktok.com/ZSwWCk5o/`
           );
-          reply(`*Sambil Nunggu Bisa Kunjungi*\nerdwpe.com`);
+          reply(`*Sambil Nunggu Bisa Kunjungi*\nhttps://erdwpe.com/`);
         ini_url = args[0];
         ini_url = `https://erdwpe-api.herokuapp.com/downloader/tiktok?url=${ini_url}`;
         get_result = await fetchJson(ini_url);
@@ -1299,7 +1299,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
           return reply(
             `Example: ${command} https://twitter.com/collegemenfess/status/1440939365639725057`
           );
-          reply(`*Sambil Nunggu Bisa Kunjungi*\nerdwpe.com`);
+          reply(`*Sambil Nunggu Bisa Kunjungi*\nhttps://erdwpe.com/`);
         ini_url = budy.slice(11);
         ini_url = await axios.get(
           `https://erdwpe-api.herokuapp.com/downloader/twitter?link=${ini_url}`
@@ -1339,7 +1339,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
           return reply(
             `Example: ${command} https://www.instagram.com/p/CUL2Yv_M9DB/`
           );
-          reply(`*Sambil Nunggu Bisa Kunjungi*\nerdwpe.com`);
+          reply(`*Sambil Nunggu Bisa Kunjungi*\nhttps://erdwpe.com/`);
         if (!/https?:\/\//.test(q) && !q.includes("instagram.com"))
           throw `Silahkan masukkan URL yang valid!`;
         ini_url = args[0];
