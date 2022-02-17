@@ -1539,8 +1539,8 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
       case "sgif":
       case "stickergif":
       case "stikergif":
-        var a = "erdwpe.com";
-        var b = "Instagram: @erdwpebot";
+        var a = "Erdwpe Bot";
+        var b = "erdwpe.com";
         if ((isMedia && !lin.message.videoMessage) || isQuotedImage) {
           const encmedia = isQuotedImage
             ? JSON.parse(JSON.stringify(lin).replace("quotedM", "m")).message
@@ -1598,8 +1598,8 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
                 .extendedTextMessage.contextInfo
             : lin;
           const media = await erdwpe.downloadAndSaveMediaMessage(encmedia);
-        var a = "erdwpe.com";
-        var b = "Instagram: @erdwpebot";
+        var a = "Erdwpe Bot";
+        var b = "erdwpe.com";
 	await createExif(a);
           out = getRandom(".webp");
           ffmpeg(media)
