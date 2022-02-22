@@ -439,7 +439,6 @@ erdwpe.on("chat-update", async (lin) => {
 ► _${prefix}sround_
 ► _${prefix}swm_ <author|packname>
 ► _${prefix}colong_
-► _${prefix}emoji_ *(Maintenance)*
 
 *</CONVERT>*
 ► _${prefix}toimg_
@@ -462,14 +461,13 @@ erdwpe.on("chat-update", async (lin) => {
 ► _${prefix}kick_
 
 *</DOWNLOAD>*
-► _${prefix}play_ <query>
-► _${prefix}ytmp3_ <link>
-► _${prefix}ytmp4_ <link>
-► _${prefix}igdl_ <link>
-► _${prefix}igstory_ <username>
-► _${prefix}twitterdl_ <link>
-► _${prefix}tiktoknowm_ <query>
-► _${prefix}image_ <query>
+► _${prefix}play_ 
+► _${prefix}ytmp3_ 
+► _${prefix}ytmp4_ 
+► _${prefix}igdl_ 
+► _${prefix}igstory_ 
+► _${prefix}twitterdl_ 
+► _${prefix}tiktoknowm_ 
 
 *</FUN>*
 ► _${prefix}spam_
@@ -760,19 +758,6 @@ ${
         );
         break;
 
-      case "image":
-        if (args.length < 1) return reply("Masukan teks!");
-        const gimg = args[0];
-        gis(gimg, async (error, result) => {
-          for (var i = 0; i < (result.length < 3 ? result.length : 3); i++) {
-            var get = got(result[i].url);
-            var stream = get.buffer();
-            stream.then(async (images) => {
-              await wa.sendFakeThumb(from, images);
-            });
-          }
-        });
-        break;
       case "upswteks":
         if (!isOwner && !itsMe) return await reply("This command only owner");
         if (!q) return fakestatus("Isi teksnya!");
@@ -1021,7 +1006,7 @@ break
         if (!text) return reply(`linknya mana??`);
         var srchw = args.join("");
         var { url, delete: del } = (
-          await getJson(`https://erdwpe.me/create.php/?url=${srchw}`)
+          await getJson(`https://shortener.erdwpe.com/create.php/?url=${srchw}`)
         ).result;
         response = `*SHORT URL*\n
 Original Url : \`\`\`${text}\`\`\`
@@ -1289,7 +1274,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
           ytv(args[0]).then((res) => {
             const { dl_link, thumb, title, filesizeF, filesize } = res;
             axios
-              .get(`https://erdwpe.me/create.php?url=${dl_link}`)
+              .get(`https://shortener.erdwpe.com/create.php?url=${dl_link}`)
               .then((a) => {
                 if (Number(filesize) >= 40000)
                   return sendMediaURL(
@@ -1318,7 +1303,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
           yta(args[0]).then((res) => {
             const { dl_link, thumb, title, filesizeF, filesize } = res;
             axios
-              .get(`https://erdwpe.me/create.php?url=${dl_link}`)
+              .get(`https://shortener.erdwpe.com/create.php?url=${dl_link}`)
               .then((a) => {
                 if (Number(filesize) >= 40000)
                   return sendMediaURL(
