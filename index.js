@@ -872,13 +872,15 @@ ${
         prefix = newPrefix;
         await reply("Success change prefix to: " + prefix);
         break;
-      case "broadcast":
+ case 'bc': 
         if (!isOwner && !itsMe) return await reply("This command only owner");
-        text = args.join(" ");
-        for (let chat of totalChat) {
-          await wa.sendMessage(chat.jid, text);
-        }
-        break;
+if (!args[0]) return await reply('Teksnya mana amsu!')
+var chats = erdwpe.chats.all().filter(v => v.jid && v.jid !== 'status@broadcast').map(v => v.jid)
+   mek = lin.quoted ? lin.quoted.fakeObj : lin
+  kon = await erdwpe.cMod(lin.chat, mek, `*「 ERDWPE 」*\n\n${q}`)
+  for (let id of chats) await erdwpe.copyNForward(id, kon, true)
+  erdwpe.reply(from, `_Mengirim pesan broadcast ke ${chats.length} chats_`, lin)
+break
       case "setthumb":
         if (!isOwner && !itsMe) return await reply("This command only owner");
         if (!isQuotedImage && !isImage) return await reply("Gambarnya mana?");
