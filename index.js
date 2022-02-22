@@ -1263,7 +1263,8 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
         }
         break;
       case "ytmp4":
-        if (args.length === 0)
+		    reply("Fitur Dalam Perbaikan!!!")
+        /*if (args.length === 0)
           return reply(`Kirim perintah *${prefix}ytmp4 [linkYt]*\n *Example:* ${prefix}ytmp4 https://www.youtube.com/watch?v=ZG_yB1ZP798`);
         //wa.fakeStatusForwarded(from, '_tunggu sebentar_')
         let isLinks2 = args[0].match(
@@ -1289,11 +1290,13 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
           });
         } catch (err) {
           reply("ERROR");
-        }
+        }*/
         break;
       case "ytmp3":
+		    reply("Fitur Dalam Perbaikan!!!")
+
         //wa.fakeStatusForwarded(from, '_tunggu sebentar_')
-        if (args.length === 0)
+        /*if (args.length === 0)
           return reply(`Kirim perintah *${prefix}ytmp3 [linkYt]*\n *Example:* ${prefix}ytmp3 https://www.youtube.com/watch?v=ZG_yB1ZP798`);
         let isLinks = args[0].match(
           /(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/
@@ -1318,7 +1321,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
           });
         } catch (err) {
           reply("ERROR");
-        }
+        }*/
         break;
       case "sround":
         if (
