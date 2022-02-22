@@ -38,12 +38,9 @@ const Jimp = require("jimp");
 const msg = require("./lib/message");
 const fetch = require("node-fetch");
 const gis = require("g-i-s");
-const { removeBackgroundFromImageFile } = require("remove.bg");
 const wa = require("./lib/wa");
 const peimon = require("./lib/toVideo");
 const got = require("got");
-const { EmojiAPI } = require("emoji-api");
-const emoji = new EmojiAPI();
 const yts = require("yt-search");
 const imgbb = require("imgbb-uploader");
 const { createExif } = require("./lib/exif");
@@ -439,7 +436,6 @@ erdwpe.on("chat-update", async (lin) => {
 ► _${prefix}sround_
 ► _${prefix}swm_ <author|packname>
 ► _${prefix}colong_
-► _${prefix}emoji_ *(Maintenance)*
 
 *</CONVERT>*
 ► _${prefix}toimg_
