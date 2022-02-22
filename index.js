@@ -38,9 +38,12 @@ const Jimp = require("jimp");
 const msg = require("./lib/message");
 const fetch = require("node-fetch");
 const gis = require("g-i-s");
+const { removeBackgroundFromImageFile } = require("remove.bg");
 const wa = require("./lib/wa");
 const peimon = require("./lib/toVideo");
 const got = require("got");
+const { EmojiAPI } = require("emoji-api");
+const emoji = new EmojiAPI();
 const yts = require("yt-search");
 const imgbb = require("imgbb-uploader");
 const { createExif } = require("./lib/exif");
@@ -436,6 +439,7 @@ erdwpe.on("chat-update", async (lin) => {
 ► _${prefix}sround_
 ► _${prefix}swm_ <author|packname>
 ► _${prefix}colong_
+► _${prefix}emoji_ *(Maintenance)*
 
 *</CONVERT>*
 ► _${prefix}toimg_
@@ -601,6 +605,7 @@ ${
         break;
       case "kick":
         if (!isAdmin) return reply("this command only for admin");
+        if (!botAdmin) return await reply("Jadikan Bot Menjadi Admin");
         if (!args) return reply(`Penggunaan ${prefix}kick @tag atau nomor`);
         if (lin.message.extendedTextMessage != undefined) {
           mentioned = lin.message.extendedTextMessage.contextInfo.mentionedJid;
@@ -1006,7 +1011,7 @@ break
       case "promote":
         if (!isGroup) return await reply("this command only for group");
         if (!isAdmin) return await reply("This command only for admin");
-        if (!botAdmin) return await reply("jadikan bot admin");
+        if (!botAdmin) return await reply("Jadikan Bot Menjadi Admin");
         if (mentionUser.length == 0) return await reply("Tag member");
         await wa.promoteAdmin(from, mentionUser);
         await reply(`Success promote member`);
@@ -1035,8 +1040,8 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
       case "demote":
         if (!isGroup) return await reply("this command only for group");
         if (!isAdmin) return await reply("This command only for admin");
-        if (!botAdmin)
-          return await reply("This command is available if the bot admin");
+        if (!botAdmin) return await reply("Jadikan Bot Menjadi Admin");
+
         if (mentionUser.length == 0) return await reply("Tag member!");
         await wa.demoteAdmin(from, mentionUser);
         await reply(`Success demote member`);
@@ -1800,8 +1805,8 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
       case "group":
         if (!isGroup) return await reply("this command only for group");
         if (!isAdmin) return await reply("This command only for admin");
-        if (!botAdmin)
-          return await reply("This command is available if the bot admin");
+        if (!botAdmin) return await reply("Jadikan Bot Menjadi Admin");
+
         if (args[0] === "open") {
           erdwpe
             .groupSettingChange(from, GroupSettingChange.messageSend, false)
@@ -1833,8 +1838,8 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
       case "setnamegc":
         if (!isGroup) return await reply("this command only for groups");
         if (!isAdmin) return await reply("This command only for admin");
-        if (!botAdmin)
-          return await reply("This command is available if the bot admin");
+        if (!botAdmin) return await reply("Jadikan Bot Menjadi Admin");
+
         var newName = args.join(" ");
         erdwpe.groupUpdateSubject(from, newName).then(() => {
           wa.sendFakeStatus(
@@ -1864,8 +1869,8 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
       case "setdesc":
         if (!isGroup) return await reply("This command only for groups");
         if (!isAdmin) return await reply("This command only for admin");
-        if (!botAdmin)
-          return await reply("This command is available if the bot admin");
+        if (!botAdmin) return await reply("Jadikan Bot Menjadi Admin");
+
         var newDesc = args.join(" ");
         erdwpe.groupUpdateDescription(from, newDesc).then(() => {
           wa.sendFakeStatus(
