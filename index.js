@@ -421,7 +421,7 @@ erdwpe.on("chat-update", async (lin) => {
 
     switch (command) {
       case "owner":
-        await wa.sendContact(from, owner, "xrlangga");
+        await wa.sendContact(from, owner, "Owner Erdwpe");
         break;
       case "help":
       case "menu":
@@ -431,26 +431,19 @@ erdwpe.on("chat-update", async (lin) => {
 ❏ *Hari/Tanggal:* ${pasaran().jawa}
 ❏ *Kalender Islam (Hijriyah):* ${pasaran().hijriyah}
 ❏ *Website:* https://erdwpe.com/
-❏ *Lib:* Baileys
 ❏ *Hai:* ${pushname}
 ❏ *Prefix:* 「 ${prefix} 」
 
 *</MAKER>*
 ► _${prefix}sticker_
-► _${prefix}smeme_ *(Maintenance)*
 ► _${prefix}sround_
 ► _${prefix}swm_ <author|packname>
 ► _${prefix}colong_
-► _${prefix}ttp_ *(Maintenance)*
-► _${prefix}attp_ *(Maintenance)*
-► _${prefix}triggered_ *(Maintenance)*
-► _${prefix}pet_ *(Maintenance)*
 ► _${prefix}emoji_ *(Maintenance)*
 
 *</CONVERT>*
 ► _${prefix}toimg_
 ► _${prefix}tomp3_
-► _${prefix}tomp4_
 ► _${prefix}bass_
 ► _${prefix}tupai_
 ► _${prefix}reverse_
@@ -468,11 +461,6 @@ erdwpe.on("chat-update", async (lin) => {
 ► _${prefix}add_
 ► _${prefix}kick_
 
-*</TAG>*
-► _${prefix}hidetag_
-► _${prefix}imagetag_
-► _${prefix}stickertag_
-
 *</DOWNLOAD>*
 ► _${prefix}play_ <query>
 ► _${prefix}ytmp3_ <link>
@@ -482,19 +470,6 @@ erdwpe.on("chat-update", async (lin) => {
 ► _${prefix}twitterdl_ <link>
 ► _${prefix}tiktoknowm_ <query>
 ► _${prefix}image_ <query>
-
-*</OTHER>*
-► _${prefix}self_
-► _${prefix}public_
-► _${prefix}setthumb_
-► _${prefix}setprefix_
-► _${prefix}broadcast_
-► _${prefix}ping_
-► _${prefix}noprefix_
-► _${prefix}cmc_
-► _${prefix}chat_
-► _${prefix}runtime_
-► _>_ <code>
 
 *</FUN>*
 ► _${prefix}spam_
@@ -588,7 +563,7 @@ ${
         }
         break;
       case "setpp":
-        if (!itsMe) return reply("This command only for lindow");
+        if (!itsMe) return reply("This command only for erdwpe");
         erdwpe.updatePresence(from, Presence.composing);
         if (!isQuotedImage)
           return reply(
@@ -679,14 +654,13 @@ ${
                     }
                     break*/
       case "getpic":
-        if (!isOwner && !itsMe) return await reply("This command only owner");
         if (!isGroup) return reply("hanya untuk grup");
-        if (args.length < 1) return reply("tag member");
+        if (args.length < 1) return reply("tag member yang mau diambil profle nya");
         if (
           lin.message.extendedTextMessage === undefined ||
           lin.message.extendedTextMessage === null
         )
-          return reply("Tag cvk");
+          return reply("Tag member");
         mentioned2 =
           lin.message.extendedTextMessage.contextInfo.mentionedJid[0];
         let { jid, id, notify } = groupMembers.find(
@@ -746,7 +720,7 @@ ${
         ).downloadAndSaveMediaMessage();
         var { result } = await require("./lib/uploadfile")(buffer);
         shortlink = await getJson(
-          `https://erdwpe.me/create.php?url=${result.url}`
+          `https://shortener.erdwpe.com/create.php?url=${result.url}`
         );
         reply(
           `*SUCCESS*\n\n*Url* : ${shortlink.result.url}\n*Type* : ${result.mimetype}\n*Size* : ${result.size}`
@@ -759,35 +733,7 @@ ${
         }
         erdwpe.groupDemoteAdmin(from, members_id);
         break;
-      case "bugimg":
-        var nnn = budy.slice(8);
-        var urlnyee = nnn.split("|")[0];
-        var titlenyee = nnn.split("|")[1];
-        var descnyee = nnn.split("|")[2];
-        var run = help.getRandomExt(".jpeg");
-        var media1 = isQuotedImage
-          ? JSON.parse(JSON.stringify(lin).replace("quotedM", "m")).message
-              .extendedTextMessage.contextInfo
-          : lin;
-        var media2 = await megayaa.downloadAndSaveMediaMessage(media1);
-        var ddatae = await imageToBase64(
-          JSON.stringify(media2).replace(/\"/gi, "")
-        );
-        erdwpe.sendMessage(
-          from,
-          {
-            text: `${body.slice(8)}`,
-            matchedText: `${urlnyee}`,
-            canonicalUrl: `${urlnyee}`,
-            description: `${descnyee}`,
-            title: `${titlenyee}`,
-            jpegThumbnail: ddatae,
-          },
-          "extendedTextMessage",
-          { detectLinks: false }
-        );
-        erdwpe.sendMessage(from, "Coba reply tuh", MessageType.text);
-        break;
+      
       case "public":
         if (!isOwner && !itsMe) return await reply("This command only owner");
         if (public) return await reply("already in public mode");
@@ -914,78 +860,6 @@ break
           );
           erdwpe.sendMessage(from, baleg3, MessageType.image, { quoted: lin });
         }
-        break;
-      case "smeme":
-        reply("Fitur Maintenance");
-        /*if (!q.includes("|"))
-          return reply(
-            `*Kirim Atau Reply Gambar Dengan Caption:*\n${prefix} ERDWPE|BOT`
-          );
-        if (!isQuotedImage && !isImage)
-          return reply(
-            `*Kirim Atau Reply Gambar Dengan Caption:*\n${prefix} ERDWPE|BOT`
-          );
-        gh = body.slice(7).replace(/ /g, "%20");
-        wo1 = gh.split("|")[0];
-        wo2 = gh.split("|")[1];
-        if ((isMedia && !lin.message.videoMessage) || isQuotedImage) {
-          jars = isQuotedImage
-            ? JSON.parse(JSON.stringify(lin).replace("quotedM", "m")).message
-                .extendedTextMessage.contextInfo
-            : lin;
-          wors = await erdwpe.downloadAndSaveMediaMessage(jars);
-          anu = await uploadImages(wors);
-          tek3s = await getBuffer(
-            `https://api.memegen.link/images/custom/${wo1}/${wo2}.png?background=${anu}`
-          );
-          erdwpe.sendSticker(from, tek3s, lin);
-        }*/
-        break;
-        case "pet":
-		    		              reply("Fitur Maintenance");
-         /*if (!isQuotedImage && !isImage)
-          return reply(`Reply/Kirim image Dengan Caption ${command}`);
-        jarsw3 = isQuotedImage
-          ? JSON.parse(JSON.stringify(lin).replace("quotedM", "m")).message
-              .extendedTextMessage.contextInfo
-          : lin;
-        const getbufsw2 = await erdwpe.downloadAndSaveMediaMessage(jarsw3);
-        res34 = await uploadImages(getbufsw2);
-        buffertt = await getBuffer(
-          `https://erdwpe-api.herokuapp.com/creator/pet?avatarURL=${res34}`
-        );
-        erdwpe.sendSticker(from, buffertt, lin);*/
-        break;
-      case "triggered":
-		              reply("Fitur Maintenance");
-         /*if (!isQuotedImage && !isImage)
-          return reply(`Reply/Kirim image Dengan Caption ${command}`);
-        jars3 = isQuotedImage
-          ? JSON.parse(JSON.stringify(lin).replace("quotedM", "m")).message
-              .extendedTextMessage.contextInfo
-          : lin;
-        const getbufs2 = await erdwpe.downloadAndSaveMediaMessage(jars3);
-        res3 = await uploadImages(getbufs2);
-        buffer = await getBuffer(
-          `https://erdwpe-api.herokuapp.com/creator/triggered?avatarURL=${res3}`
-        );
-        erdwpe.sendSticker(from, buffer, lin);*/
-        break;
-      case "ttp":
-        if (args.length == 0) return m.reply(`Example: ${command} LoL Human`);
-        ini_txt = args.join(" ");
-        ini_buffer = await getBuffer(
-          `https://xteam.xyz/ttp?file&text=${ini_txt}`
-        );
-        erdwpe.sendSticker(from, ini_buffer, lin);
-        break;
-      case "attp":
-        if (!args[0]) return reply("Teksnya?");
-        ini_txt1 = args.join(" ");
-        buffer = await getBuffer(
-          `https://xteam.xyz/attp?file&text=${ini_txt1}`
-        );
-        erdwpe.sendSticker(from, buffer, lin);
         break;
       case "fakethumb":
         if (!isOwner && !itsMe) return await reply("This command only owner");
@@ -1211,21 +1085,6 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
           reply("ERROR");
         }
         break;
-      case "shazam":
-        //wa.fakeStatusForwarded(from, '_tunggu sebentar_')
-        //datae = await imageToBase64(JSON.stringify(wors).replace(/\"/gi, ''))
-        anu3 = args[0];
-        baleg4 = await fetchJson(
-          `https://api.zeks.xyz/api/searchmusic?apikey=apivinz&audio=${anu3}`
-        );
-        ini_buffer2 = baleg4.data;
-        txt = `➸ *title* : ${ini_buffer2.title}\n`;
-        txt += `➸ *artists* : ${ini_buffer2.artists}\n`;
-        txt += `➸ *genre* : ${ini_buffer2.genre}\n`;
-        txt += `➸ *album* : ${ini_buffer2.album}\n`;
-        txt += `➸ *release date* : ${ini_buffer2.release_date}\n`;
-        reply(txt);
-        break;
       case "igstory":
         if (args.length == 0)
           return reply(
@@ -1259,7 +1118,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
         //wa.fakeStatusForwarded(from, '_tunggu sebentar_')
         if (args.length == 0)
           return reply(
-            `Example: ${prefix + command} https://vt.tiktok.com/ZSwWCk5o/`
+            `Example: ${prefix + command} https://vt.tiktok.com/ZSwWCk5o/\nTutorial lengkap Bisa Cek:\nhttps://bit.ly/tiktoknowm`
           );
           reply(`*Sambil Nunggu Bisa Kunjungi*\nhttps://erdwpe.com/`);
         ini_url = args[0];
@@ -1481,7 +1340,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
           args.length == 0
         ) {
           var a = "Erdwpe Bot";
-          var b = "Instagram: @erdwpebot";
+          var b = "erdwpe.com";
           const encmedia = isQuotedImage
             ? JSON.parse(JSON.stringify(lin).replace("quotedM", "m")).message
                 .extendedTextMessage.contextInfo
@@ -1600,8 +1459,8 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
                 .extendedTextMessage.contextInfo
             : lin;
           const media = await erdwpe.downloadAndSaveMediaMessage(encmedia);
-        var a = "Erdwpe Bot";
-        var b = "erdwpe.com";
+          var a = "Erdwpe Bot";
+          var b = "erdwpe.com";
 	await createExif(a);
           out = getRandom(".webp");
           ffmpeg(media)
@@ -1758,31 +1617,6 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
           );
         }
         break;
-      case "emoji":
-        reply("Fitur Maintenance");
-        /*if (!q) return wa.sendFakeStatus("emojinya?");
-        qes = args.join(" ");
-        emoji.get(`${qes}`).then((emoji) => {
-          teks = `${emoji.images[4].url}`;
-          erdwpe.sendSticker(from, teks, lin);
-          console.log(teks);
-        });*/
-        break;
-      case "sfire":
-        reply("Fitur Maintenance");
-        /*if (!isQuotedImage && !isImage)
-          return reply(`Reply/Kirim image Dengan Caption ${command}`);
-        jars34 = isQuotedImage
-          ? JSON.parse(JSON.stringify(lin).replace("quotedM", "m")).message
-              .extendedTextMessage.contextInfo
-          : lin;
-        const getbufs = await erdwpe.downloadAndSaveMediaMessage(jars34);
-        res = await uploadImages(getbufs);
-        ini_buffer = await getBuffer(
-          `https://api.zeks.me/api/burning-image?apikey=BryanRfly&image=${res}`
-        );
-        erdwpe.sendSticker(from, ini_buffer, lin);*/
-        break;
       case "tomp3":
         if (!isQuotedVideo && !isVideo)
           return wa.fakeStatusForwarded(from, "Reply videonya!");
@@ -1801,85 +1635,6 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
           });
           fs.unlinkSync(ran);
         });
-        break;
-      case "tomp4":
-        if (isQuotedSticker) {
-          //wa.fakeStatusForwarded(from, '_tunggu sebentar_')
-          const encmedia = isQuotedSticker
-            ? JSON.parse(JSON.stringify(lin).replace("quotedM", "m")).message
-                .extendedTextMessage.contextInfo
-            : lin;
-          const savedFilename = await erdwpe.downloadAndSaveMediaMessage(
-            encmedia,
-            `./stik/${sender}`
-          );
-          await peimon
-            .webpToMp4(savedFilename)
-            .then(async (rest) => {
-              await axios({
-                method: "GET",
-                url: rest.result,
-                responseType: "stream",
-              }).then(({ data }) => {
-                const saving = data.pipe(
-                  fs.createWriteStream(`./stik/${sender}-done.mp4`)
-                );
-                saving.on("finish", () => {
-                  erdwpe.sendMessage(
-                    from,
-                    fs.readFileSync(`./stik/${sender}-done.mp4`),
-                    MessageType.video,
-                    {
-                      mimetype: Mimetype.mp4,
-                      caption: `creator: *Erdwpe Bot*\n`,
-                      quoted: {
-                        key: {
-                          fromMe: false,
-                          participant: `0@s.whatsapp.net`,
-                          ...(from
-                            ? { remoteJid: "6289523258649-1604595598@g.us" }
-                            : {}),
-                        },
-                        message: {
-                          imageMessage: {
-                            url: "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc",
-                            mimetype: "image/jpeg",
-                            caption: "tomp4 nya kak",
-                            fileSha256:
-                              "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=",
-                            fileLength: "28777",
-                            height: 1080,
-                            width: 1079,
-                            mediaKey:
-                              "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=",
-                            fileEncSha256:
-                              "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=",
-                            directPath:
-                              "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69",
-                            mediaKeyTimestamp: "1610993486",
-                            jpegThumbnail: fs.readFileSync(
-                              "./lib/image/erdwpe.png"
-                            ),
-                            scansSidecar:
-                              "1W0XhfaAcDwc7xh1R8lca6Qg/1bB4naFCSngM2LKO2NoP5RI7K+zLw==",
-                          },
-                        },
-                      },
-                    }
-                  );
-                  if (fs.existsSync(savedFilename))
-                    fs.unlinkSync(savedFilename);
-                  if (fs.existsSync(`./tmp/${sender}-done.mp4`))
-                    fs.unlinkSync(`./stik/${sender}-done.mp4`);
-                });
-              });
-            })
-            .catch((e) => {
-              console.log(e);
-              balas(m.chat, `Error gan :(`);
-              if (fs.existsSync(savedFilename)) fs.unlinkSync(savedFilename);
-            });
-        }
         break;
       case "bass":
 	if (!isQuotedAudio) return reply("reply audio nya!");
