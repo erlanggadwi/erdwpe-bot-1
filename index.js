@@ -553,7 +553,7 @@ ${
           antidel = true;
           reply(`Succes mengaktifkan antidelete`);
         } else if (args[0] === "off") {
-          if (!antidel) return reply("Sudah di NonAktifkan sebelumnya!");
+          if (!antidel) return reply("Sudah di Nonaktifkan sebelumnya!");
           antidel = false;
           reply(`Succes mematikan antidelete`);
         } else {
