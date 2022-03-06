@@ -1868,7 +1868,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
           );
         });
       default:
-        if (isCmd) return reply(`Command *${command}* not found`);
+        if (isCmd) return reply(`Command *${prefix + command}* not found`);
     }
   } catch (e) {
     console.log(
