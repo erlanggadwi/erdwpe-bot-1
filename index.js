@@ -433,6 +433,7 @@ erdwpe.on("chat-update", async (lin) => {
 ❏ *Website:* https://erdwpe.com/
 ❏ *Hai:* ${pushname}
 ❏ *Prefix:* 「 ${prefix} 」
+❏ *ᴍᴏʜᴏɴ ᴍᴀᴀꜰ ᴜɴᴛᴜᴋ ʙᴇʙᴇʀᴀᴘᴀ ꜰɪᴛᴜʀ ᴀᴅᴀ ʏᴀɴɢ ᴇʀʀᴏʀ ɢᴜɴᴀᴋᴀɴ ꜰɪᴛᴜʀ ʏᴀɴɢ ʙɪꜱᴀ ꜱᴀᴊᴀ*
 
 *</MAKER>*
 ► _${prefix}sticker_
@@ -972,7 +973,8 @@ break
         wa.sendFakeStatus(from, "succes");
         break;
       case "ppcouple":
-        getres = await axios.get(`https://erdwpe-api.herokuapp.com/randomimg/ppcouple`);
+        reply("ꜰɪᴛᴜʀ ᴅᴀʟᴀᴍ ᴘᴇʀʙᴀɪᴋᴀɴ")
+        /*getres = await axios.get(`https://erdwpe-api.herokuapp.com/randomimg/ppcouple`);
         var { male, female } = getres.data;
         picmale = await getBuffer(`${male}`);
         erdwpe.sendMessage(from, picmale, image, {
@@ -983,7 +985,7 @@ break
         erdwpe.sendMessage(from, picfemale, image, {
           quoted: lin,
           caption: "ini yang cewe",
-        });
+        });*/
         break;
       case "chat":
         if (!itsMe) return reply("This command only for owner");
@@ -1072,7 +1074,8 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
         }
         break;
       case "igstory":
-        if (args.length == 0)
+        reply("ꜰɪᴛᴜʀ ᴅᴀʟᴀᴍ ᴘᴇʀʙᴀɪᴋᴀɴ")
+        /*if (args.length == 0)
           return reply(
             `Penggunaan ${prefix}username\n\nContoh: ${prefix}mastercorbuzier`
           );
@@ -1098,11 +1101,12 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
               caption: `Type : ${i.fileType}\n\n*Jangan Lupa Follow IG BOT:* @erdwpebot 🤖`,
             });
           }
-        }
+        }*/
         break;
       case "tiktoknowm":
+        reply("ꜰɪᴛᴜʀ ᴅᴀʟᴀᴍ ᴘᴇʀʙᴀɪᴋᴀɴ")
         //wa.fakeStatusForwarded(from, '_tunggu sebentar_')
-        if (args.length == 0)
+        /*if (args.length == 0)
           return reply(
             `Example: ${prefix + command} https://vt.tiktok.com/ZSwWCk5o/\nTutorial lengkap Bisa Cek:\nhttps://bit.ly/tiktoknowm`
           );
@@ -1138,11 +1142,12 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
               },
             },
           },
-        });
+        });*/
         break;
       case "twitterdl":
       case "twitter":
-        if (args.length == 0)
+        reply("ꜰɪᴛᴜʀ ᴅᴀʟᴀᴍ ᴘᴇʀʙᴀɪᴋᴀɴ")
+        /*if (args.length == 0)
           return reply(
             `Example: ${command} https://twitter.com/collegemenfess/status/1440939365639725057`
           );
@@ -1179,10 +1184,11 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
               },
             },
           },
-        });
+        });*/
         break;
       case "igdl":
-        if (args.length == 0)
+        reply("ꜰɪᴛᴜʀ ᴅᴀʟᴀᴍ ᴘᴇʀʙᴀɪᴋᴀɴ")
+        /*if (args.length == 0)
           return reply(
             `Example: ${command} https://www.instagram.com/p/CUL2Yv_M9DB/`
           );
@@ -1260,10 +1266,10 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
               },
             });
           }
-        }
+        }*/
         break;
       case "ytmp4":
-		    reply("Fitur Dalam Perbaikan!!!")
+		    reply("ꜰɪᴛᴜʀ ᴅᴀʟᴀᴍ ᴘᴇʀʙᴀɪᴋᴀɴ")
         /*if (args.length === 0)
           return reply(`Kirim perintah *${prefix}ytmp4 [linkYt]*\n *Example:* ${prefix}ytmp4 https://www.youtube.com/watch?v=ZG_yB1ZP798`);
         //wa.fakeStatusForwarded(from, '_tunggu sebentar_')
@@ -1293,7 +1299,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
         }*/
         break;
       case "ytmp3":
-		    reply("Fitur Dalam Perbaikan!!!")
+		    reply("ꜰɪᴛᴜʀ ᴅᴀʟᴀᴍ ᴘᴇʀʙᴀɪᴋᴀɴ")
 
         //wa.fakeStatusForwarded(from, '_tunggu sebentar_')
         /*if (args.length === 0)
