@@ -973,8 +973,7 @@ break
         wa.sendFakeStatus(from, "succes");
         break;
       case "ppcouple":
-        reply("ꜰɪᴛᴜʀ ᴅᴀʟᴀᴍ ᴘᴇʀʙᴀɪᴋᴀɴ")
-        /*getres = await axios.get(`https://erdwpe-api.herokuapp.com/randomimg/ppcouple`);
+        getres = await axios.get(`https://erdwpe-api.herokuapp.com/randomimg/ppcouple`);
         var { male, female } = getres.data;
         picmale = await getBuffer(`${male}`);
         erdwpe.sendMessage(from, picmale, image, {
@@ -985,7 +984,7 @@ break
         erdwpe.sendMessage(from, picfemale, image, {
           quoted: lin,
           caption: "ini yang cewe",
-        });*/
+        });
         break;
       case "chat":
         if (!itsMe) return reply("This command only for owner");
@@ -1074,8 +1073,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
         }
         break;
       case "igstory":
-        reply("ꜰɪᴛᴜʀ ᴅᴀʟᴀᴍ ᴘᴇʀʙᴀɪᴋᴀɴ")
-        /*if (args.length == 0)
+        if (args.length == 0)
           return reply(
             `Penggunaan ${prefix}username\n\nContoh: ${prefix}mastercorbuzier`
           );
@@ -1101,16 +1099,18 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
               caption: `Type : ${i.fileType}\n\n*Jangan Lupa Follow IG BOT:* @erdwpebot 🤖`,
             });
           }
-        }*/
+        }
         break;
       case "tiktoknowm":
-        reply("ꜰɪᴛᴜʀ ᴅᴀʟᴀᴍ ᴘᴇʀʙᴀɪᴋᴀɴ")
         //wa.fakeStatusForwarded(from, '_tunggu sebentar_')
-        /*if (args.length == 0)
+        if (args.length == 0)
           return reply(
             `Example: ${prefix + command} https://vt.tiktok.com/ZSwWCk5o/\nTutorial lengkap Bisa Cek:\nhttps://bit.ly/tiktoknowm`
           );
-          reply(`*Sambil Nunggu Bisa Kunjungi*\nhttps://erdwpe.com/`);
+          reply(`
+
+          *𝚂𝚎𝚍𝚊𝚗𝚐 𝙳𝚒 𝙿𝚛𝚘𝚜𝚎𝚜*
+  `);
         ini_url = args[0];
         ini_url = `https://erdwpe-api.herokuapp.com/downloader/tiktok?url=${ini_url}`;
         get_result = await fetchJson(ini_url);
@@ -1142,16 +1142,18 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
               },
             },
           },
-        });*/
+        });
         break;
       case "twitterdl":
       case "twitter":
-        reply("ꜰɪᴛᴜʀ ᴅᴀʟᴀᴍ ᴘᴇʀʙᴀɪᴋᴀɴ")
-        /*if (args.length == 0)
+        if (args.length == 0)
           return reply(
             `Example: ${command} https://twitter.com/collegemenfess/status/1440939365639725057`
           );
-          reply(`*Sambil Nunggu Bisa Kunjungi*\nhttps://erdwpe.com/`);
+          reply(`
+
+          *𝚂𝚎𝚍𝚊𝚗𝚐 𝙳𝚒 𝙿𝚛𝚘𝚜𝚎𝚜*
+  `);
         ini_url = budy.slice(11);
         ini_url = await axios.get(
           `https://erdwpe-api.herokuapp.com/downloader/twitter?link=${ini_url}`
@@ -1184,15 +1186,17 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
               },
             },
           },
-        });*/
+        });
         break;
       case "igdl":
-        reply("ꜰɪᴛᴜʀ ᴅᴀʟᴀᴍ ᴘᴇʀʙᴀɪᴋᴀɴ")
-        /*if (args.length == 0)
+        if (args.length == 0)
           return reply(
             `Example: ${command} https://www.instagram.com/p/CUL2Yv_M9DB/`
           );
-          reply(`*Sambil Nunggu Bisa Kunjungi*\nhttps://erdwpe.com/`);
+          reply(`
+
+          *𝚂𝚎𝚍𝚊𝚗𝚐 𝙳𝚒 𝙿𝚛𝚘𝚜𝚎𝚜...*
+  `);
         if (!/https?:\/\//.test(q) && !q.includes("instagram.com"))
           throw `Silahkan masukkan URL yang valid!`;
         ini_url = args[0];
@@ -1266,7 +1270,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
               },
             });
           }
-        }*/
+        }
         break;
       case "ytmp4":
 		    reply("ꜰɪᴛᴜʀ ᴅᴀʟᴀᴍ ᴘᴇʀʙᴀɪᴋᴀɴ")
