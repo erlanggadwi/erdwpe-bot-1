@@ -233,7 +233,7 @@ erdwpe.on("chat-update", async (lin) => {
       );
     };
 
-    const uploadImages = (filePath) => {
+    const uploadImage = (filePath) => {
       return new Promise(async (resolve, reject) => {
         const fileData = fs.readFileSync(filePath);
         const form = new FormData();
@@ -433,11 +433,12 @@ erdwpe.on("chat-update", async (lin) => {
 ❏ *Website:* https://erdwpe.com/
 ❏ *Hai:* ${pushname}
 ❏ *Prefix:* 「 ${prefix} 」
-❏ *ᴍᴏʜᴏɴ ᴍᴀᴀꜰ ᴜɴᴛᴜᴋ ʙᴇʙᴇʀᴀᴘᴀ ꜰɪᴛᴜʀ ᴀᴅᴀ ʏᴀɴɢ ᴇʀʀᴏʀ ɢᴜɴᴀᴋᴀɴ ꜰɪᴛᴜʀ ʏᴀɴɢ ʙɪꜱᴀ ꜱᴀᴊᴀ*
 
 *</MAKER>*
 ► _${prefix}sticker_
 ► _${prefix}sround_
+► _${prefix}pet_
+► _${prefix}triggered_
 ► _${prefix}swm_ <author|packname>
 ► _${prefix}colong_
 
@@ -1108,8 +1109,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
             `Example: ${prefix + command} https://vt.tiktok.com/ZSwWCk5o/\nTutorial lengkap Bisa Cek:\nhttps://bit.ly/tiktoknowm`
           );
           reply(`
-
-          *𝚂𝚎𝚍𝚊𝚗𝚐 𝙳𝚒 𝙿𝚛𝚘𝚜𝚎𝚜*
+          *𝚂𝚎𝚍𝚊𝚗𝚐 𝙳𝚒 𝙿𝚛𝚘𝚜𝚎𝚜...*
   `);
         ini_url = args[0];
         ini_url = `https://erdwpe-api.herokuapp.com/downloader/tiktok?url=${ini_url}`;
@@ -1151,8 +1151,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
             `Example: ${command} https://twitter.com/collegemenfess/status/1440939365639725057`
           );
           reply(`
-
-          *𝚂𝚎𝚍𝚊𝚗𝚐 𝙳𝚒 𝙿𝚛𝚘𝚜𝚎𝚜*
+          *𝚂𝚎𝚍𝚊𝚗𝚐 𝙳𝚒 𝙿𝚛𝚘𝚜𝚎𝚜...*
   `);
         ini_url = budy.slice(11);
         ini_url = await axios.get(
@@ -1194,7 +1193,6 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
             `Example: ${command} https://www.instagram.com/p/CUL2Yv_M9DB/`
           );
           reply(`
-
           *𝚂𝚎𝚍𝚊𝚗𝚐 𝙳𝚒 𝙿𝚛𝚘𝚜𝚎𝚜...*
   `);
         if (!/https?:\/\//.test(q) && !q.includes("instagram.com"))
@@ -1333,6 +1331,28 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
           reply("ERROR");
         }*/
         break;
+        case "pet":
+          if (!isQuotedImage && !isImage)
+            return reply(`Reply/Kirim image Dengan Caption ${command}`);
+          jarsw3 = isQuotedImage
+            ? JSON.parse(JSON.stringify(lin).replace("quotedM", "m")).message
+                .extendedTextMessage.contextInfo
+            : lin;
+          const getbufsw2 = await erdwpe.downloadAndSaveMediaMessage(jarsw3);
+          res34 = await uploadImage(getbufsw2);
+          sendStickerFromUrl(from, `https://erdwpe-api.herokuapp.com/creator/pet?avatarURL=${res34}`, lin, { packname: global.packname, author: global.author })
+          break;
+          case "triggered":
+          if (!isQuotedImage && !isImage)
+            return reply(`Reply/Kirim image Dengan Caption ${command}`);
+          jarsw3s = isQuotedImage
+            ? JSON.parse(JSON.stringify(lin).replace("quotedM", "m")).message
+                .extendedTextMessage.contextInfo
+            : lin;
+          const getbufsw2s = await erdwpe.downloadAndSaveMediaMessage(jarsw3s);
+          res34 = await uploadImage(getbufsw2s);
+          sendStickerFromUrl(from, `https://erdwpe-api.herokuapp.com/creator/triggered?url=${res34}`, lin)
+          break;
       case "sround":
         if (
           ((isMedia && !lin.message.videoMessage) || isQuotedImage) &&
