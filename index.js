@@ -1849,7 +1849,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
         media = await erdwpe.downloadAndSaveMediaMessage(encmedia);
         anu = args.join(" ").split("|");
         satu = anu[0] !== "" ? anu[0] : `Erdwpe Bot`;
-        dua = typeof anu[1] !== "undefined" ? anu[1] : `erdwpe.xyz`;
+        dua = typeof anu[1] !== "undefined" ? anu[1] : `erdwpe.com`;
         require("./lib/exif.js").createExif(satu, dua);
         require("./lib/exif.js").modStick(media, erdwpe, lin, from);
         break;
