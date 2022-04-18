@@ -1480,7 +1480,7 @@ Delete URL : *Udh Dikirim Di Private Chat :)*
           const media = await erdwpe.downloadAndSaveMediaMessage(encmedia);
           var a = "Erdwpe Bot";
           var b = "erdwpe.com";
-	await createExif(a);
+	await createExif(a, b);
           out = getRandom(".webp");
           ffmpeg(media)
             .on("error", (e) => {
